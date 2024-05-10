@@ -26,7 +26,8 @@ public class SegmentTreeMin implements SegmentTree_I{
             }
 
             endTime = System.nanoTime();
-            System.out.printf("Add for tree_min: Index = %d, Time = %d ns, Operations = %d%n", i, endTime - startTime, operations);
+            System.out.printf("Add for tree_min: Index = %d, Time = %d ns, Operations = %d%n",
+                    i, endTime - startTime, operations);
         }
     }
 
@@ -73,7 +74,8 @@ public class SegmentTreeMin implements SegmentTree_I{
         }
 
         long endTime = System.nanoTime();
-        System.out.printf("Update for tree_min: Index = %d, New Value = %d, Time = %d ns, Operations = %d%n", i, value, endTime - startTime, operations);
+        System.out.printf("Update for tree_min: Index = %d, New Value = %d, Time = %d ns, Operations = %d%n",
+                i, value, endTime - startTime, operations);
     }
 
     // То же самое, что и апдейт, на всякий случай оставлю
