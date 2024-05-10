@@ -3,7 +3,7 @@ package AaDS.semester_work_2.segment_tree;
 public class SegmentTreeMin implements SegmentTree_I{
     private int[] tree;
     private int[] data;
-    private int n;
+    private final int n;
 
     public SegmentTreeMin(int n) {
         this.n = n;
@@ -84,7 +84,7 @@ public class SegmentTreeMin implements SegmentTree_I{
 
     // Метод чтобы инициализировать наш массив, на котором мы построим нашу структуру
     public void setData(int[] newData) {
-        data = newData;
+        this.data = newData;
     }
 }
 
