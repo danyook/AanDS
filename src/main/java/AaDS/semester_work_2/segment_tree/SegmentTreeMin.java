@@ -33,7 +33,9 @@ public class SegmentTreeMin implements SegmentTree_I{
 
     // Поиск минимума на отрезке
     public void query(int l, int r) {
-        int originalLeft = l, originalRight = r;
+        // Сохраняю переменные для вывода отрезка
+        int originalL = l;
+        int originalR = r;
 
         long startTime = System.nanoTime();
         long operations = 0;

@@ -13,6 +13,7 @@ public class SegmentTreeMax implements SegmentTree_I{
 
     public void build() {
         long startTime, endTime, operations;
+
         for (int i = 0; i < n; i++) {
             startTime = System.nanoTime();
             operations = 0;
@@ -34,7 +35,9 @@ public class SegmentTreeMax implements SegmentTree_I{
 
     // Поиск максимума на отрезке
     public void query(int l, int r) {
-        int originalLeft = l, originalRight = r;
+        // Сохраняю переменные для вывода отрезка
+        int originalL = l;
+        int originalR = r;
 
         long startTime = System.nanoTime();
         long operations = 0;
