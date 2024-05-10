@@ -61,7 +61,7 @@ public class SegmentTreeMax implements SegmentTree_I{
 
         long endTime = System.nanoTime();
         System.out.printf("Query Max: Range [%d, %d), Result = %d, Time = %d ns, Operations = %d%n",
-                originalLeft, originalRight, maxResult, endTime - startTime, operations);
+                originalL, originalR, maxResult, endTime - startTime, operations);
     }
 
     // Обновление структуры (добавление, изменение элементов)

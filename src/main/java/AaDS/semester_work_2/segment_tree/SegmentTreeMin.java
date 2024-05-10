@@ -59,7 +59,7 @@ public class SegmentTreeMin implements SegmentTree_I{
 
         long endTime = System.nanoTime();
         System.out.printf("Query Min: Range [%d, %d), Result = %d, Time = %d ns, Operations = %d%n",
-                originalLeft, originalRight, minResult, endTime - startTime, operations);
+                originalL, originalR, minResult, endTime - startTime, operations);
     }
 
     // Обновление структуры (добавление, изменение элементов)
