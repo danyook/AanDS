@@ -1,34 +1,35 @@
 package AaDS.semester_work_2.segment_tree;
 
-public class SegmentTreeSum implements SegmentTree_I{
+public class SegmentTreeSum implements SegmentTree_I {
     private int[] tree;
     private int[] data;
     private final int n;
 
     public SegmentTreeSum(int n) {
         this.n = n;
-        this.tree = new int[4 * n];
+        this.tree = new int[2 * n + 1];
         this.data = new int[n];
     }
 
     public void build() {
         long startTime, endTime, operations;
+        startTime = System.nanoTime();
+        operations = 0;
+
+        // Строим листья
         for (int i = 0; i < n; i++) {
-            startTime = System.nanoTime();
-            operations = 0;
-
-            int pos = i + n;
-            tree[pos] = data[i];
-            while (pos > 1) {
-                pos /= 2;
-                tree[pos] = tree[2 * pos] + tree[2 * pos + 1];
-                operations++;
-            }
-
-            endTime = System.nanoTime();
-            System.out.printf("Add for tree_sum: Index = %d, Time = %d ns, Operations = %d%n",
-                    i, endTime - startTime, operations);
+            tree[n + i] = data[i];
+            operations++;
         }
+
+        // Строим внутренние узлы
+        for (int i = n - 1; i > 0; i--) {
+            tree[i] = tree[2 * i] + tree[2 * i + 1];
+            operations++;
+        }
+        endTime = System.nanoTime();
+        System.out.printf("Build for tree_sum: Time = %d ns, Operations = %d%n",
+                endTime - startTime, operations);
     }
 
     // Поиск суммы на отрезке

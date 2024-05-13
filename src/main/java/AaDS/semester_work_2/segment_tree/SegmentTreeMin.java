@@ -7,28 +7,30 @@ public class SegmentTreeMin implements SegmentTree_I{
 
     public SegmentTreeMin(int n) {
         this.n = n;
-        this.tree = new int[4 * n];
+        this.tree = new int[2 * n + 1];
         this.data = new int[n];
     }
 
+
     public void build() {
         long startTime, endTime, operations;
+        startTime = System.nanoTime();
+        operations = 0;
+
+        // Строим листья
         for (int i = 0; i < n; i++) {
-            startTime = System.nanoTime();
-            operations = 0;
-
-            int pos = i + n;
-            tree[pos] = data[i];
-            while (pos > 1) {
-                pos /= 2;
-                tree[pos] = Math.min(tree[2 * pos], tree[2 * pos + 1]);
-                operations++;
-            }
-
-            endTime = System.nanoTime();
-            System.out.printf("Add for tree_min: Index = %d, Time = %d ns, Operations = %d%n",
-                    i, endTime - startTime, operations);
+            tree[n + i] = data[i];
+            operations++;
         }
+
+        // Строим внутренние узлы
+        for (int i = n - 1; i > 0; i--) {
+            tree[i] = Math.min(tree[2 * i], tree[2 * i + 1]);
+            operations++;
+        }
+        endTime = System.nanoTime();
+        System.out.printf("Build for tree_min: Time = %d ns, Operations = %d%n",
+                endTime - startTime, operations);
     }
 
     // Поиск минимума на отрезке
